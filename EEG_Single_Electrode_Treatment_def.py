@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Aug 15 20:57:43 2022
-
-@author: maxim
-"""
 
 # -*- coding: utf-8 -*-
 """
