@@ -22,9 +22,11 @@ import time
 alpha = 100
 omega_wavelet = 1
 
+#Name of the data to treat
+file_name = 'ID02_233h'
 
 data = []
-mat = scipy.io.loadmat('ID12_171h') 
+mat = scipy.io.loadmat(file_name+'.mat') 
 datatot = mat['EEG']
 
 # #For short term data
@@ -48,7 +50,7 @@ signal_size = len(data[0])
 # signal_size = len(data[0])
 
 #Size of the Kernel
-kernel_lenght = 400
+kernel_lenght = 100
 
 
 #Creating the fonction database
@@ -60,7 +62,7 @@ theta = 0
 #Ranging parameters 
 b_var = np.linspace(-0.3,0,10)
 omega_var = np.linspace(3,7,10) * np.pi
-tau_var = np.linspace(0.2,0.7,6)
+tau_var = np.linspace(0.05,0.95,6)
 
 
 for tau in tau_var:
@@ -101,7 +103,8 @@ for i in range(number_of_signal):
     result = variance_detection(i,jump,kernel_lenght,data,Kmode,Ktot,Z,signal_size,Threshold)
     for k in range(len(result)):
         result_excel.loc[len(result_excel)] = result[k]
-    
+
+#Excel output with the results of the detection
 file_name_excel = 'resultats '+file_name+'.xlsx'
 result_excel.to_excel(file_name_excel)
     
