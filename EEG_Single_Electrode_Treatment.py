@@ -22,9 +22,10 @@ import scipy.signal
 alpha = 100
 omega_wavelet = 1
 
+filename = 'ID12_171h'
 
 data = []
-mat = scipy.io.loadmat('ID12_171h') 
+mat = scipy.io.loadmat(filename) 
 datatot = mat['EEG']
 
 # #For short term data
